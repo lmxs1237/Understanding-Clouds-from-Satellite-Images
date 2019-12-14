@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% import "wtf.html" as wtf %}
+
+
+{% block body %}
+    <h1>MODELS</h1>
+
+    {{ wtf.quick_form(form, button_map={'submit': 'info'}) }}
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                {% if old_img %}
+                    <h2>Before Process</h2>
+                    <br>
+                    <img src="/static/upload/{{ old_img }}" class="img img-responsive">
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            {% if new_img %}
+                <h2>After Process</h2>
+                <img src="/static/upload/{{ new_img }}" class="img img-responsive">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
